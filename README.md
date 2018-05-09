@@ -2,27 +2,27 @@
 
 **Napomena:** Sav kod se nalazi raspoređen po branchevima;
 
-| **Naziv brancha** | *Opis*          |
+| **Naziv applikacije (link na branch)** | *Opis*          |
 | ------------- |-------------|
-| [**OCRApplication**](https://devking.king-ict.hr/gitlab/changecode/SirotiljaValley/tree/OCRApplication/OCRApplication/OCRApplication) | [*CognitiveServices Vision API*](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/) - machine-learning potpomognut app koji analizira slike te izvlači tekst i riječi iz istog (rukopis, bilo kakav font). |
-| [**FaceRecognitionApplication**](https://devking.king-ict.hr/gitlab/changecode/SirotiljaValley/tree/FaceRecognitionApplication/FaceRecognitionApplication) | [*CognitiveServices Face API*](https://azure.microsoft.com/en-us/services/cognitive-services/face/) - machine-learning potpomognut app koji na temelju zadanih slika uči raspoznavati lica pojedinaca, te može raspoznavati do 64 osobe na istoj slici, do 10 000 osoba ukupno. |
-| [**TwitterAnalytics**](https://devking.king-ict.hr/gitlab/changecode/SirotiljaValley/tree/TwitterAnalytics/) | Skripta koja za odabrani Tweet dohvaća podatke potrebne za izradu analitike. Koristi [*TwitterApi*](https://developer.twitter.com/en/docs) i popratne [*Python biblioteke*] (https://developer.twitter.com/en/docs/developer-utilities/twitter-libraries). |
-| [**TwitterScraper**](https://devking.king-ict.hr/gitlab/changecode/SirotiljaValley/tree/TwitterScraper) | Skripta koja pretražuje Twitter za objave vezane uz volontiranje, kako bi se među njima mogli identificirati potencijalni događaji i akcije. Koristi [*TwitterApi*](https://developer.twitter.com/en/docs) i popratne [*Python biblioteke*] (https://developer.twitter.com/en/docs/developer-utilities/twitter-libraries). |
-| [**TwitterBot**](https://devking.king-ict.hr/gitlab/changecode/SirotiljaValley/tree/TwitterBot) | Bot koji obavještava Twitter korisnika da je njegov događaj automatski unešen na naš web, pomoću Tweeta i DM-a. |
-| [**JSONParser**](https://devking.king-ict.hr/gitlab/changecode/SirotiljaValley/tree/JSONParser) | Pomoćna skripta koja iz CognitiveServices JSON odgovora izvlači human-readable tekst koji se koristi u daljnoj obradi. |
+| [**OCRApplication**](https://github.com/ivanorsolic/VolunteeringToday/tree/OCRApplication) | [*CognitiveServices Vision API*](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/) - machine-learning potpomognut app koji analizira slike te izvlači tekst i riječi iz istog (rukopis, bilo kakav font). |
+| [**FaceRecognitionApplication**](https://github.com/ivanorsolic/VolunteeringToday/tree/FaceRecognitionApplication) | [*CognitiveServices Face API*](https://azure.microsoft.com/en-us/services/cognitive-services/face/) - machine-learning potpomognut app koji na temelju zadanih slika uči raspoznavati lica pojedinaca, te može raspoznavati do 64 osobe na istoj slici, do 10 000 osoba ukupno. |
+| [**TwitterAnalytics**](https://github.com/ivanorsolic/VolunteeringToday/tree/TwitterScripts) | Skripta koja za odabrani Tweet dohvaća podatke potrebne za izradu analitike. Koristi [*TwitterApi*](https://developer.twitter.com/en/docs) i popratne [*Python biblioteke*] (https://developer.twitter.com/en/docs/developer-utilities/twitter-libraries). |
+| [**TwitterScraper**](https://github.com/ivanorsolic/VolunteeringToday/tree/TwitterScripts) | Skripta koja pretražuje Twitter za objave vezane uz volontiranje, kako bi se među njima mogli identificirati potencijalni događaji i akcije. Koristi [*TwitterApi*](https://developer.twitter.com/en/docs) i popratne [*Python biblioteke*] (https://developer.twitter.com/en/docs/developer-utilities/twitter-libraries). |
+| [**TwitterBot**](https://github.com/ivanorsolic/VolunteeringToday/tree/TwitterScripts) | Bot koji obavještava Twitter korisnika da je njegov događaj automatski unešen na naš web, pomoću Tweeta i DM-a. |
+| [**JSONParser**](https://github.com/ivanorsolic/VolunteeringToday/tree/TwitterScripts) | Pomoćna skripta koja iz CognitiveServices JSON odgovora izvlači human-readable tekst koji se koristi u daljnoj obradi. |
 
 # Opis projekta
 
 - Ideja projekta je automatizirati popunjavanje te kategoriziranje svih volonterskih događaja podijeljenih na društevnim mrežama.
-Kao PoC, aplikacija se spaja na Twitter koristeći [**TwitterAnalytics**](https://devking.king-ict.hr/gitlab/changecode/SirotiljaValley/tree/TwitterAnalytics/), pretražujuću relevantne hashtagove (PoC example: ***`"#VolunteeringTodayKingICT"`***).
+Kao PoC, aplikacija se spaja na Twitter koristeći [**TwitterAnalytics**](https://github.com/ivanorsolic/VolunteeringToday/tree/TwitterScripts/), pretražujuću relevantne hashtagove (PoC example: ***`"#VolunteeringTodayKingICT"`***).
 
-- Nakon spajanja na Twitter, pokreće se [**TwitterScraper**](https://devking.king-ict.hr/gitlab/changecode/SirotiljaValley/blob/TwitterScraper/TwitterScraper.py) koji dohvaća sve Tweetove sa zadanim hashtagom, te downloada prateće slike.
+- Nakon spajanja na Twitter, pokreće se [**TwitterScraper**](https://devking.king-ict.hr/gitlab/changecode/SirotiljaValley/blob/TwitterScripts/TwitterScraper.py) koji dohvaća sve Tweetove sa zadanim hashtagom, te downloada prateće slike.
 
-- Slike se zatim obrađuju koristeći [**CognitiveServices vision i OCR**](https://devking.king-ict.hr/gitlab/changecode/SirotiljaValley/blob/OCRApplication/OCRApplication/OCRApplication/OCRTools.cs).
+- Slike se zatim obrađuju koristeći [**CognitiveServices vision i OCR**](https://github.com/ivanorsolic/VolunteeringToday/tree/OCRApplication/OCRApplication/OCRTools.cs).
 
-- CognitiveServices vraća odgovor u obliku JSONa, koji se parsira koristeći [**JSONParser**](https://devking.king-ict.hr/gitlab/changecode/SirotiljaValley/blob/JSONParser/json_to_text.py) te se pretvara u human-readable tekst iz kojega se ekstrahiraju najbitniji podaci, poput: e-maila, datuma, lokacije i sl.
+- CognitiveServices vraća odgovor u obliku JSONa, koji se parsira koristeći [**JSONParser**](https://github.com/ivanorsolic/VolunteeringToday/tree/TwitterScripts/json_to_text.py) te se pretvara u human-readable tekst iz kojega se ekstrahiraju najbitniji podaci, poput: e-maila, datuma, lokacije i sl.
 
-- Odgovor se šalje na [**backend API**](https://devking.king-ict.hr/gitlab/changecode/SirotiljaValley/tree/master) koji automatski popunjava [**Web**](https://devking.king-ict.hr/gitlab/changecode/SirotiljaValley/tree/master) sa novim događajem, te aktivira [**TwitterBota**](https://devking.king-ict.hr/gitlab/changecode/SirotiljaValley/tree/TwitterBot) koji obavještava korisnika o mogućnosti moderiranja svog događaja na stranici.
+- Odgovor se šalje na [**backend API**](https://github.com/ivanorsolic/VolunteeringToday/tree/master) koji automatski popunjava [**Web**](https://github.com/ivanorsolic/VolunteeringToday/tree/master) sa novim događajem, te aktivira [**TwitterBota**](https://github.com/ivanorsolic/VolunteeringToday/tree/TwitterScripts/PostTweets.py) koji obavještava korisnika o mogućnosti moderiranja svog događaja na stranici.
 
 - Web se zatim periodično (svakih par minuta) popunjava novonastalnim događajima na Twitteru koji su prepoznati kao volonterski događaju, koristeći ranije spomenuti proces.
 
