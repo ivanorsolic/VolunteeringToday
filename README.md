@@ -16,7 +16,7 @@
 - Ideja projekta je automatizirati popunjavanje te kategoriziranje svih volonterskih događaja podijeljenih na društevnim mrežama.
 Kao PoC, aplikacija se spaja na Twitter koristeći [**TwitterAnalytics**](https://github.com/ivanorsolic/VolunteeringToday/tree/TwitterScripts/), pretražujuću relevantne hashtagove (PoC example: ***`"#VolunteeringTodayKingICT"`***).
 
-- Nakon spajanja na Twitter, pokreće se [**TwitterScraper**](https://devking.king-ict.hr/gitlab/changecode/SirotiljaValley/blob/TwitterScripts/TwitterScraper.py) koji dohvaća sve Tweetove sa zadanim hashtagom, te downloada prateće slike.
+- Nakon spajanja na Twitter, pokreće se [**TwitterScraper**](https://github.com/ivanorsolic/VolunteeringToday/tree/TwitterScripts/TwitterScraper.py) koji dohvaća sve Tweetove sa zadanim hashtagom, te downloada prateće slike.
 
 - Slike se zatim obrađuju koristeći [**CognitiveServices vision i OCR**](https://github.com/ivanorsolic/VolunteeringToday/tree/OCRApplication/OCRApplication/OCRTools.cs).
 
